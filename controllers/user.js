@@ -44,9 +44,19 @@ const putUsers = async (req, res) => {
 
 // GET USER BY ID
 
+const getUserid= async(req,res)=>{
+    try {
+        const id=req.params.id
+        const useriddata= await data.find(data=>data.id==id)
+        if(!useriddata){
+            res.status(404).json({message:"user not found"})
+        }
+        res.status(200).json(useriddata);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
-
-
-module.exports = { getUser, putUsers }; // Export as an object
+module.exports = { getUser, putUsers ,getUserid}; // Export as an object
