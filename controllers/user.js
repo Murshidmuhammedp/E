@@ -83,6 +83,23 @@ const updateuser = async (req, res) => {
     }
 }
 
+const deleteuser = async (req, res) => {
+    try {
+        const userid = req.params.id;
+        const userdata = data.findIndex(user => user.id == userid);
+        // console.log(userdata);
+        if (userdata === -1) {
+            return res.status(404).json({ message: "No user found" });
+        }
+        data.splice(userdata, 1);
+        res.status(200).json({ message: "user delete successfully" })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "error deleting user" })
+
+    }
+}
 
 
-module.exports = { getUser, putUsers, getUserid, updateuser }; // Export as an object
+
+module.exports = { getUser, putUsers, getUserid, updateuser, deleteuser }; // Export as an object
