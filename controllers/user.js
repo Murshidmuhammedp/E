@@ -44,12 +44,12 @@ const putUsers = async (req, res) => {
 
 // GET USER BY ID
 
-const getUserid= async(req,res)=>{
+const getUserid = async (req, res) => {
     try {
-        const id=req.params.id
-        const useriddata= await data.find(data=>data.id==id)
-        if(!useriddata){
-            res.status(404).json({message:"user not found"})
+        const id = req.params.id
+        const useriddata = await data.find(data => data.id == id)
+        if (!useriddata) {
+            res.status(404).json({ message: "user not found" })
         }
         res.status(200).json(useriddata);
     } catch (error) {
@@ -57,6 +57,32 @@ const getUserid= async(req,res)=>{
     }
 }
 
+// EDIT USER DETAILS
+
+const updateuser = async (req, res) => {
+    try {
+        const userid = req.params.id;
+        const userdata = await data.find(data => data.id == userid);
+        if (!userdata) {
+            res.status(200).json({ message: "user not found" });
+        }
+        const { username, password, age, email } = req.body;
+
+        if (username)
+            userdata.username = username
+        if (email)
+            userdata.email = email
+        if (age)
+            userdata.age = age
+        if (password)
+            userdata.password = password
+        res.status(201).json({ message: "update successfully" })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
-module.exports = { getUser, putUsers ,getUserid}; // Export as an object
+
+module.exports = { getUser, putUsers, getUserid, updateuser }; // Export as an object

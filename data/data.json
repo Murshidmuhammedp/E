@@ -3,28 +3,28 @@
         "id":1,
         "username": "murshid",
         "email": "murshid.mmp@gmail.com",
-        "Age": 22,
+        "age": 22,
         "password": "12345"
     },
     {
         "id":2,
         "username": "salman",
         "email": "salman@gmail.com",
-        "Age": 23,
+        "age": 23,
         "password": "54321"
     },
     {
         "id":3,
         "username": "safvan",
         "email": "safvan@gmail.com",
-        "Age": 25,
+        "age": 25,
         "password": "987987"
     },
     {
         "id":4,
         "username": "anas",
         "email": "anas@gmail.com",
-        "Age": 24,
+        "age": 24,
         "password": "369369"
     }
 ]
